@@ -40,7 +40,14 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        String lastElement = "";
+        if(array.length>0){
+            lastElement = array[array.length-2];
+            System.out.println(lastElement+ " is the last element");
+        }else{
+            System.out.println("Array is empty");
+        }
+        return lastElement;
     }
 
     /**
@@ -49,6 +56,12 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for(int i = 0; i<array.length;i++) {
+            if (array[i].equalsIgnoreCase(value)){
+
+            }else{return true;}
+        }
+
         return false;
     }
 
