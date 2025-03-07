@@ -25,7 +25,14 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        String lastElement = "";
+        if(array.length>0){
+             lastElement = array[array.length-1];
+            System.out.println(lastElement+ " is the last element");
+        }else{
+            System.out.println("Array is empty");
+        }
+        return lastElement;
     }
 
     /**
