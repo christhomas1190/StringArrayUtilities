@@ -1,5 +1,7 @@
 package com.zipcodewilmington;
 
+import java.util.Arrays;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -70,7 +72,11 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+       String[] reversed = new String [array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[array.length - 1 - i]; // Assign elements in reverse order
+        }
+            return reversed;
     }
 
     /**
@@ -78,6 +84,14 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
+        String[] reversed = new String [array.length];
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[array.length - 1 - i];
+            if(array.equals(reversed)) {
+            }
+
+            return true;
+        }
         return false;
     }
 
@@ -86,7 +100,20 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        //pangram has all letter in a sentence/
+        //check the chars in an array
+        //see if each is equal to each letter of the alphabetString alphabet ="qwertyuioplkjhgfdsazxcvbnm";
+       String alphabet = "qwertyuioasdfghjklzxcvbnm";
+        String text = String.join(" ",array).toLowerCase();
+        for(int i = 0; i<array.length; i++){
+            char letter  =  alphabet.charAt(i);
+            if (!text.contains(String.valueOf(alphabet.charAt(i)))) {
+                return false;
+               }
+           }
+
+
+        return true;
     }
 
     /**
