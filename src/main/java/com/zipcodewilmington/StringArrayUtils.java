@@ -1,5 +1,6 @@
 package com.zipcodewilmington;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -152,6 +153,7 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
+
         int uniqueCount=1;
         for (int i = 1; i < array.length; i++) {
             if (!array[i].equals(array[i - 1])) {
@@ -159,12 +161,10 @@ public class StringArrayUtils {
             }
         }
 
-        // Create a result array with the appropriate size
         String[] result = new String[uniqueCount];
         result[0] = array[0];
         int index = 1;
 
-        // Populate the result array with unique elements
         for (int i = 1; i < array.length; i++) {
             if (!array[i].equals(array[i - 1])) {
                 result[index++] = array[i];
@@ -179,8 +179,28 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
-    }
 
+        ArrayList<String> resultList = new ArrayList<>();
+
+        StringBuilder currentGroup = new StringBuilder();
+
+        currentGroup.append(array[0]);
+
+        for (int i = 1; i < array.length; i++) {
+
+            if (array[i] == array[i - 1]) {
+
+                currentGroup.append(array[i]);
+            } else {
+                resultList.add(currentGroup.toString());
+                currentGroup = new StringBuilder();
+                currentGroup.append(array[i]);
+            }
+        }
+
+        resultList.add(currentGroup.toString());
+
+        return resultList.toArray(new String[0]);
+    }
 
 }
